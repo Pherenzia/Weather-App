@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <!-- change classes for when day is dark or still light out -->
+        <nav class="navbar navbar-dark bg-dark"> 
+            <p class="navbar-brand">Search a City</p>
+            <form class="form-inline">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </nav>
+    </div>
+    <div class="container" id="margincorrect">
+        <div class="row">
+            <div class="prev-cities col col-3">
+                <button>Temp</button>
+            </div>
+            <div class="card col col-9" style="width: 18rem;">
+                <div class="card-header">
+                Featured
+                </div>
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+                <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row" id="forecast">
+
+        </div>
+    </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="script.js"></script>
+</html>
