@@ -21,7 +21,7 @@ function initialforecast() {
     }
     
     
-    function fetchweather() {
+function fetchweather() {
         var citysearch = document.getElementById("city-search").value;
         var citysearch2 = citysearch.replace(" ", '+')
         var searchlink = 'https://api.openweathermap.org/geo/1.0/direct?q=' + citysearch2 + '&limit=1&appid=bb789583263105d6bc95c93685382fbc';
@@ -32,22 +32,35 @@ function initialforecast() {
         })
         .then(function (data){
             console.log(data)
+            console.log(data[0].lat);
+            console.log(data[0].lon);
+            
+            fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' +data[0].lat + '&lon=' + data[0].lon + '&appid=bb789583263105d6bc95c93685382fbc')
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data)
+                console.log(data.daily[0].temp.max)
+                console.log(data.daily[0].wind_speed)
+                console.log(data.daily[0].humidity)
+                console.log(data.daily[0].weather[0].icon)
+            })
         })
-    }
+}
     
     
-    function addcity() {
-        prevcities.innerHTML = "";
+function addcity() {
+    prevcities.innerHTML = "";
         
-        for (var i = 0; i < citylist.length; i++) {
-            var city = citylist[i];
-            var li = document.createElement('li');
-            button.textContent = city;
-            button.setAttribute('data-index', i);
-            
-            
-        }
+    for (var i = 0; i < citylist.length; i++) {
+        var city = citylist[i];
+        var li = document.createElement('li');
+        button.textContent = city;
+        button.setAttribute('data-index', i);
+                   
     }
+}
     
     userinput.addEventListener('submit' , function(event) {
         event.preventDefault();
